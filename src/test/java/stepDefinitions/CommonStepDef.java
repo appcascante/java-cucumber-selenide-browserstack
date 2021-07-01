@@ -14,8 +14,6 @@ public class CommonStepDef {
 
 	@Given("User launches Upet website")
 	public void user_launches_website() {
-//		System.setProperty("webdriver.chrome.driver", "src/test/resources/webdrivers/chromedriver.exe");
-//		System.setProperty("selenide.browser", "Chrome");
 		generic.initializeBrowser();
 	}
 	

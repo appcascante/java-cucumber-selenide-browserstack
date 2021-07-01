@@ -140,7 +140,6 @@ public class TestBase extends Selectors {
 
 	public String stringGenerator(String value) {
 		String type = value.substring(1);
-		String toBeReplaced = new String(); 
 		String append = new String();
 		
 		List rules = new ArrayList<>();
@@ -152,7 +151,6 @@ public class TestBase extends Selectors {
 			count = 8;
 			rules = Arrays.asList(new CharacterRule(EnglishCharacterData.UpperCase, 1),
 					new CharacterRule(EnglishCharacterData.LowerCase, 1), new CharacterRule(EnglishCharacterData.Digit, 1));
-			toBeReplaced = "$EMAIL";
 			append = "@gmail.com";
 			break;
 			
@@ -160,26 +158,22 @@ public class TestBase extends Selectors {
 			count = 9;
 			rules = Arrays.asList(new CharacterRule(EnglishCharacterData.UpperCase, 1),
 					new CharacterRule(EnglishCharacterData.LowerCase, 1), new CharacterRule(EnglishCharacterData.Digit, 1),new CharacterRule(EnglishCharacterData.Special,1));
-			toBeReplaced = "$PASSWORD";
 			break;
 			
 		case "FNAME":
 			count = 7;
 			rules = Arrays.asList(new CharacterRule(EnglishCharacterData.UpperCase, 1),
 					new CharacterRule(EnglishCharacterData.LowerCase, 1));
-			toBeReplaced = "$FNAME";
 			break;
 			
 		case "LNAME":
 			count = 7;
 			rules = Arrays.asList(new CharacterRule(EnglishCharacterData.UpperCase, 1),
 					new CharacterRule(EnglishCharacterData.LowerCase, 1));
-			toBeReplaced = "$LNAME";
 			break;
 		
 		}
 		
-//		System.out.println("generated length: "+count);
 		PasswordGenerator generator = new PasswordGenerator();
 		String generated = generator.generatePassword(count, rules);
 		value = generated+append;
@@ -190,9 +184,6 @@ public class TestBase extends Selectors {
 		System.out.println(System.getProperty("user.dir")+"\\"+source);
 		File file = getElement(target).uploadFile(new File(System.getProperty("user.dir")+"\\"+source));
 		
-		
-		
-//		getElement("xpath=//div[@role='dialog']").shouldBe(visible);
 	}
 	
 	

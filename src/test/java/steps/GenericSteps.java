@@ -38,8 +38,8 @@ List<List<String>> perform = dataTable.asLists();
 	
 	public void validateImageUpload(String img, String locator) {
 		
-		String src = getElement(locator).getAttribute("src").substring(22);
-		byte[] attribute = Base64.getDecoder().decode(src);
+		System.out.println("VALIDATING...");
+		getElement("//div[@role='dialog']").shouldNotBe(visible);
 		
 		getElement(locator).shouldBe(visible);
 		getElement(locator).shouldHave(image);
